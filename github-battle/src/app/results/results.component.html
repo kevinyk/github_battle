@@ -1,0 +1,8 @@
+<div *ngIf="players">
+	<h2>1st Place</h2>
+	<p>{{players[0].username}} (Score: {{players[0].score}})</p>
+	<h2>2nd Place</h2>
+	<p>{{players[1].username}} (Score: {{players[1].score}})</p>
+		<img style="height: 300px; width:auto" src="{{players[0].photoPath}}">
+		<p>{{players[0].username}}</p>
+</div>
