@@ -9,13 +9,28 @@ import { BattleService } from './../battle.service';
 export class RankingsComponent implements OnInit {
   players: object[];
   constructor(private _battleService: BattleService) { }
-
-  ngOnInit() {
+  getAllPlayers(){
   	this._battleService.getPlayers()
   	.then((response)=>{
   		console.log("then");
   		console.log(response);
   		this.players=response;
+  	})
+  	.catch((error)=>{
+  		console.log("catch");
+  		console.log(error);
+  	})
+  }
+
+  ngOnInit() {
+  	this.getAllPlayers();
+  }
+  deletePlayer(id){
+  	this._battleService.deletePlayer(id)
+  	.then((response)=>{
+  		console.log("then");
+  		console.log(response);
+  		this.getAllPlayers();
   	})
   	.catch((error)=>{
   		console.log("catch");

@@ -27,4 +27,12 @@ export class BattleService {
   	console.log("in service's getPlayers function");
   	return this._http.get('/api/players').map(Response=>Response.json()).toPromise();
   }
+  getPlayer(playerId){
+  	console.log("in service's getPlayer function");
+  	return this._http.get('/api/players/'+playerId).map(Response=>Response.json()).toPromise();
+  }
+  deletePlayer(playerId){
+  	console.log("in service's deletePlayer function");
+  	return this._http.delete('/api/players/'+playerId).map(Response=>Response.json()).toPromise();
+  }
 }

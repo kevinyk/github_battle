@@ -10,13 +10,15 @@ import { RankingsComponent } from './rankings/rankings.component';
 import { ResultsComponent } from './results/results.component';
 
 import { BattleService } from './battle.service';
+import { ShowPlayerComponent } from './show-player/show-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BattleComponent,
     RankingsComponent,
-    ResultsComponent
+    ResultsComponent,
+    ShowPlayerComponent
   ],
   imports: [
     BrowserModule,

@@ -57,6 +57,30 @@ module.exports = {
 			}
 		})
 	},
+	show: (req,res)=>{
+		console.log("in players show, this is the id", req.params.id);
+		Player.findOne({_id: req.params.id}).exec((err,player)=>{
+			if(err){
+				console.log("something went wrong, boo");
+				res.json(err);
+			}else{
+				console.log("found player", player);
+				res.json(player);
+			}
+		})
+	},
+	delete: (req,res)=>{
+		console.log("in the players delete")
+		Player.findOne({_id: req.params.id}).remove().exec((err)=>{
+			if(err){
+				console.log("something went wrong, boo");
+				res.json(err);
+			}else{
+				console.log("deleted player");
+				res.json({message: "player deleted"});
+			}
+		})
+	},
 	getCurrent: (req,res)=>{
 		if(req.session.playerOne.score>req.session.playerTwo.score){
 			var playerArr = [req.session.playerOne, req.session.playerTwo];

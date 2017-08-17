@@ -2,5 +2,6 @@
 <fieldset *ngFor="let player of players; let i=index ">
 	<h4>{{i+1}}</h4>
 	<img style="height: 300px; width:auto" src="{{player.photoPath}}">
-	<p>{{player.username}}</p>
+	<p><a [routerLink]="['/players', player._id]">{{player.username}}</a></p>
+	<button (click)="deletePlayer(player._id)" >Delete this player</button>
 </fieldset>
